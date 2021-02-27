@@ -12,3 +12,20 @@ containing multiple copies of the original string, glued together.
 4.It can be useful for a function to accept any number of arguments. For example, Math.max 
 computes the maximum of all the arguments it is given.
 To write such a function, you put three dots before the function’s last parameter, like this:
+
+5.console.log(horseShoe.charCodeAt(1));
+
+6. See 'has' in => map
+let ages = new Map();
+ages.set('Boris', 39);
+ages.set('Pranav', 32);
+ages.set('Julia', 62);
+
+console.log(typeof ages, ages);
+console.log(`Pranav is ${ages.get("Pranav")}`);
+console.log("Is Jack's age known?", ages.has("Julia"));
+
+6.get method, set method are also here like python classes
+
+7. Javascript has includes function
+

@@ -83,8 +83,8 @@ function min(...numbers){
 console.log(min(4, 1, 9, -2));
 console.log(min(-4, -1, -9, -2));
 
-
-
+let numbers = [5, 1, 7];
+console.log(max(...numbers));
 
 // console.log(Infinity          ); /* Infinity */
 // console.log(Infinity + 1      ); /* Infinity */
@@ -93,3 +93,35 @@ console.log(min(-4, -1, -9, -2));
 // console.log(1 / Infinity      ); /* 0 */
 // console.log(1 / 0             ); /* Infinity */
 // console.log(-Infinity)
+
+/*
+Square bracket array notation similarly allows the triple-dot operator 
+to spread another array into the new array.
+*/
+
+let words1 = ["never", "fully"];
+console.log("will", ...words1, "understand")
+
+// Maths
+function randompointoncircle(radius){
+    let angle = Math.random() * 2 * Math.PI;
+    return {x: radius * Math.cos(angle),
+            y:radius * Math.sin(angle)};
+}
+console.log(randompointoncircle(2))
+
+// random numbers 0-1
+console.log(Math.random())
+console.log(Math.random())
+console.log(Math.random())
+
+console.log(Math.floor(Math.random() * 10));
+
+let {name,age} = {name: "Faraji", age: 23};
+console.log(typeof name,typeof age);
+
+// JSON
+let string1 = JSON.stringify({squirell:false, events: ["weekend"]})
+console.log(string1)
+
+console.log(JSON.parse(string1).events);

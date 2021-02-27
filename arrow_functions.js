@@ -30,4 +30,20 @@ console.log(points.dist());
 
 
 
+function range(start, end){
+    var res = [];
+    if (start===end) return start;
+    for (let i=start; i<= end; i++){
+        res.push(i);
+    }
+    return res;
+}
+function reduce(array, combine, start) {
+    let current = start;
+    for (let element of array) {
+      current = combine(current, element);
+    }
+    return current;
+  }
+  console.log(reduce([1,2,3,4,5,6],(a,b)=>a+b,0));
 
