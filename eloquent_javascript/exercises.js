@@ -469,7 +469,7 @@ whether two values are the same.
 Give the class a static from method that takes an iterable object as argument 
 and creates a group that contains all the values produced by iterating over it.
 */
-
+/*
 class Group{
   constructor(){
     this.members = [];
@@ -500,3 +500,81 @@ group.add(30)
 console.log(group)
 group.delete(30)
 console.log(group)
+*/
+/*
+Iterable groups
+Make the Group class from the previous exercise iterable.
+Refer to the section about the iterator interface earlier 
+in the chapter if you aren’t clear on the exact form of the 
+interface anymore.
+If you used an array to represent the group’s members, 
+don’t just return the iterator created by calling the Symbol.iterator 
+method on the array. That would work, but it defeats the purpose of this 
+exercise.
+It is okay if your iterator behaves strangely when the group is modified
+during iteration.
+*/
+// Checking sYmbol example
+// const sym = Symbol()
+// obj[sym] = 'key1'
+// console.log(obj[sym])
+
+class Group{
+  constructor(){
+    this.members = [];
+  }
+  add(value){
+    if(!this.has(value)){
+      this.members.push(value);
+    }
+  }
+  delete(value){
+    this.members = this.members.filter(v => v!==value);
+  }
+  has(value){
+    return this.members.includes(value);
+  }
+  static from(collection){
+    let group = new Group;
+    for (let value of collection){
+      group.add(value);
+    }
+    return group;
+  }
+  [Symbol.iterator]() {
+    return new GroupIterator(this)
+  }
+}
+class GroupIterator{
+  constructor(group){
+    this.group = group;
+    this.position = 0;
+  }
+  next(){
+    if (this.position >= this.group.members.length){
+      return {done:true};
+    }else{
+      let result = {value: this.group.members[this.position],done:false};
+      this.position++;
+      return result;
+    }
+  }
+}
+for (let value of Group.from(["a", "b", "c"])){
+  console.log(value)
+}
+/*
+Borrowing a method
+Earlier in the chapter I mentioned that an object’s 
+hasOwnProperty can be used as a more robust alternative to the 
+in operator when you want to ignore the prototype’s properties. 
+But what if your map needs to include the word "hasOwnProperty"? 
+You won’t be able to call that method anymore because the object’s 
+own property hides the method value.
+
+Can you think of a way to call hasOwnProperty on an object that has 
+its own property by that name?
+*/
+let map = {one: true, two: true, hasOwnProperty: true};
+
+console.log(Object.prototype.hasOwnProperty.call(map, "one"));

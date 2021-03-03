@@ -29,3 +29,33 @@ console.log("Is Jack's age known?", ages.has("Julia"));
 
 7. Javascript has includes function
 
+8. About call() 
+    var person = {
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+    }
+    var person1 = {
+    firstName:"John",
+    lastName: "Doe"
+    }
+    var person2 = {
+    firstName:"Mary",
+    lastName: "Doe"
+    }
+    var x = person.fullName.call(person1);
+/Second example
+    var person = {
+    fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + "," + city + "," + country;
+    }
+    }
+    var person1 = {
+    firstName:"John",
+    lastName: "Doe"
+    }
+    var person2 = {
+    firstName:"Mary",
+    lastName: "Doe"
+    }
+    var x = person.fullName.call(person1, "Oslo", "Norway"); 

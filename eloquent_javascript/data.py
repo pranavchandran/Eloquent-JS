@@ -1,11 +1,5 @@
-data = {
-    {id: 0,"name": "Mustang","report": 3},
-    {id: 1,"name": "ram","report": 3},
-    {id: 2,"name": "hero","report": 3},
-    {id: 3,"name": "pranav","report": 2},
-    {id: 4,"name": "lambar","report": 1}
-}
-    
-
-    
-print(data)
+from functools import partial
+def to(a,b,c,d): return a+b+c+d
+print(to(1,2,3,4))
+total3 = partial(to,4,3,3)
+print('3',total3(5))
