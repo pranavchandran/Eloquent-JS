@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to demonstrate the prompt box.</p>
+
+<button onclick="look()">Try it</button>
+
+<p id="demo"></p>
+<p id="pn"></p>
+
+
+
+<script>
+    class InputError extends error{}
+function promptDirection(question){
+    let result = prompt(question);
+    if (result.toLowerCase()=='left') return "L";
+    if (result.toLowerCase()=='right') return "R";
+    throw new InputError("Invalid direction: " + result);
+}
+function look(){
+    if (promptDirection("Where you going")=='L'){   
+        document.getElementById("pn").innerHTML = ("You reached Home");
+    }else{
+        return document.getElementById("pn").innerHTML = "Try Again";
+    }
+}
+
+for(;;){
+    try{
+        let dir = promptDirection("Where?");
+        // console.log('you choose', dir)
+        document.getElementById("pn").innerHTML = ("You choose", dir);
+        break
+    }catch(e){
+        if(e instanceof InputError){
+            // console.log("Not a valid direction.Try Again")
+            document.getElementById("pn").innerHTML = ("Not a valid direction.Try Again.");
+        }else{
+            throw e
+        }
+    }
+}
+</script>
+
+</body>
+</html>

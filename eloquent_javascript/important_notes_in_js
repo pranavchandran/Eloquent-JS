@@ -59,3 +59,7 @@ console.log("Is Jack's age known?", ages.has("Julia"));
     lastName: "Doe"
     }
     var x = person.fullName.call(person1, "Oslo", "Norway"); 
+
+9. The for (;;) construct is a way to intentionally create a loop 
+that doesn’t terminate on its own. We break out of the loop only 
+when a valid direction is given. 
