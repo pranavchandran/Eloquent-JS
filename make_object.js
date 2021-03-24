@@ -37,3 +37,23 @@ let data = {
 }
 
 console.log(points[1].x + points[0].x)
+
+var person = {
+    firstName : "John",
+    lastName  : "Doe",
+    age     : 50,
+    eyeColor  : "blue"
+  }
+// a(person)
+// console.log(person)
+for (key in person){
+    console.log( person[key]);
+}
+
+let persons = [1,2,3,4]
+
+persons.forEach(function(obj, index){
+    console.log(obj+index)
+})
+
+  

@@ -153,4 +153,18 @@ const f = function(a) {
   f(2)
   console.log(h(15))
 
-
+// Using foreach and filter method
+  let a = [1,2,3,4]
+  a.forEach((a)=>{
+    if(a%2==0){
+      console.log(a)
+    }
+  })
+  
+  var even = [1,2,3,4,5,6];
+  select = even.filter(p=> {
+      if (p%2==0){
+          return {selected:p}
+      }
+  });
+  console.log(select)
